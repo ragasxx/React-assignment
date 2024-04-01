@@ -1,38 +1,244 @@
-.App {
-  text-align: center;
+* {
+  margin: 0;
+  text-decoration: none;
+  padding: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.container {
+  display: flex;
+
+  background-color: black;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+main {
+  width: 100%;
+  padding: 20px;
+  overflow-y: auto;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.sidenav {
+  height: auto;
+  background: #242222;
+  color: #fff;
+  height: 100vh;
+  width: 300px;
+  border-radius: 0px 5px;
+  transition: all 0.5s;
+}
+
+.top_section {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  align-items: center;
+  padding: 20px 15px;
+}
+
+.logo {
+  font-family: serif;
+  font-size: 25px;
+}
+
+.bars {
+  display: flex;
+  font-size: 25px;
+  margin-left: 30px;
+  cursor: pointer;
+}
+
+.link {
+  display: flex;
+  color: #fff;
+  padding: 10px 15px;
+  gap: 15px;
+  transition: all 0.5s;
+  margin-top: 20px;
+}
+
+.active {
+  color: green;
+}
+
+.icon,
+.link_text {
+  font-size: 1.2rem;
+}
+
+.main {
+  background-color: black;
+}
+
+/* home section */
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: black;
+}
+
+.heading {
+  flex-direction: column;
+  color: #fff;
+  padding: 5px;
+}
+
+h2 {
+  font-size: 1.5rem;
+  padding: 5px;
+  font-family: sans-serif;
+}
+
+h2 > span {
+  background: linear-gradient(to right, #b0efa6, #8ff541);
+  background-clip: text;
+  color: transparent;
+}
+
+h3 {
+  padding: 5px;
+  font-size: 1.2rem;
+  font-family: sans-serif;
+}
+
+h3 > span {
+  background: rgb(104, 248, 75);
+  background-clip: text;
+  color: transparent;
+}
+
+.header_btn {
+  background-color: rgb(104, 248, 75);
+  padding: 10px;
+  color: white;
+  border-radius: 5px;
+  border: none;
+}
+
+.chart_container {
+  width: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+  height: 50vh;
+}
+
+.chart {
+  width: 700px;
+  height: 550px;
+  padding: 20px;
+  border-radius: 20px;
+  border: solid 3px rgb(33, 30, 30);
+  box-shadow: 0 6px 20px 0 rgba(145, 248, 169, 0.19);
+}
+
+.chart_heading {
+  font-family: sans-serif;
+  font-weight: 700;
+  font-size: 1.5rem;
   color: white;
+  padding: 5px;
+  margin: 5px;
 }
 
-.App-link {
-  color: #61dafb;
+.card_container {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 10px;
+  margin-top: 20px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.card {
+  border: 2px solid rgb(39, 36, 36);
+  box-shadow: 0 6px 20px 0 rgba(145, 248, 169, 0.19);
+  border-radius: 10px;
+  background: rgb(21, 21, 21);
+  display: flex;
+  flex-direction: column;
+  color: white;
+  width: 250px;
+  height: 120px;
+  margin-top: 20px;
+  padding: 20px;
+  text-align: center;
+}
+.card > h1 {
+  font-family: sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-top: 20px;
+}
+
+.card > p {
+  font-family: Arial, Helvetica, sans-serif;
+  margin-top: 20px;
+  color: rgb(104, 248, 75);
+}
+
+.shimmer_card {
+  border: 2px solid rgb(39, 36, 36);
+  box-shadow: 0 6px 20px 0 rgba(145, 248, 169, 0.19);
+  border-radius: 10px;
+  background: rgb(21, 21, 21);
+  width: 250px;
+  height: 120px;
+  margin-top: 20px;
+  padding: 20px;
+  animation: shine 1s linear infinite alternate;
+}
+
+.shimmer_chart {
+  width: 700px;
+  height: 550px;
+  padding: 20px;
+  border-radius: 20px;
+  border: solid 3px rgb(33, 30, 30);
+  box-shadow: 0 6px 20px 0 rgba(145, 248, 169, 0.19);
+  animation: shine 1s infinite alternate;
+}
+
+@keyframes shine {
+  0% {
+    background-color: hsl(210, 3%, 13%);
   }
-  to {
-    transform: rotate(360deg);
+  100% {
+    background-color: hsl(0, 0%, 22%);
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .chart {
+    width: 90%;
+    height: 45%;
+  }
+
+  .sidenav {
+    height: 100%;
+  }
+
+  .card_container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+}
+
+@media (max-width: 650px) {
+  .header_btn {
+    display: none;
+  }
+
+  .heading > h3 {
+    display: none;
+  }
+
+  .chart_heading {
+    font-weight: 500;
+    font-size: 1rem;
   }
 }
